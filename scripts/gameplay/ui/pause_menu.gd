@@ -4,6 +4,8 @@ signal resumed
 signal main_menu_requested
 
 var is_from_main_menu: bool = false
+var _clear_pending: bool = false
+var _clear_timer: SceneTreeTimer = null
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -35,8 +37,26 @@ func _ready() -> void:
 	music_slider.value_changed.connect(func(v): _set_bus_volume("Music", v); AudioManager.save_settings())
 	sfx_slider.value_changed.connect(func(v): _set_bus_volume("SFX", v); AudioManager.save_settings())
 	fullscreen_toggle.toggled.connect(func(on): DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if on else DisplayServer.WINDOW_MODE_WINDOWED))
-	
+
+	get_node("%ClearDataButton").pressed.connect(_on_clear_data_pressed)
+
 	_populate_achievements()
+
+func _on_clear_data_pressed() -> void:
+	var btn = get_node("%ClearDataButton")
+	if not _clear_pending:
+		_clear_pending = true
+		btn.text = "Tap again to confirm"
+		btn.add_theme_color_override("font_color", Color.RED)
+		_clear_timer = get_tree().create_timer(3.0)
+		_clear_timer.timeout.connect(func():
+			_clear_pending = false
+			btn.text = "Clear Save Data"
+			btn.remove_theme_color_override("font_color")
+		)
+	else:
+		PlayerDataManager.reset_to_defaults()
+		GameManager.return_to_main_menu()
 
 func _set_bus_volume(bus_name: String, linear: float) -> void:
 	var idx = AudioServer.get_bus_index(bus_name)

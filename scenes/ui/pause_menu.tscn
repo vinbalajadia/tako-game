@@ -113,6 +113,12 @@ theme_override_constants/h_separation = 4
 theme_override_fonts/font = ExtResource("3_f6eus")
 text = "Fullscreen"
 
+[node name="ClearDataButton" type="Button" parent="Window/MarginContainer/VBoxContainer/Tabs/Settings" unique_id=1892362001]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f6eus")
+text = "Clear Save Data"
+
 [node name="Controls" type="ScrollContainer" parent="Window/MarginContainer/VBoxContainer/Tabs" unique_id=1614378758]
 visible = false
 layout_mode = 2

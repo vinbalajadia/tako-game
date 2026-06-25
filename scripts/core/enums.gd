@@ -23,6 +23,7 @@ enum ECharacterAnimation {
 }
 
 enum LevelName {
+	Billiards,
 	Level0,
 	Level01,
 	Level1,

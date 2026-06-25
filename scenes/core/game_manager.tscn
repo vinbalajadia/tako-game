@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://m2f8u3agggii"]
 
 [ext_resource type="Script" uid="uid://cvtb7fs4khry0" path="res://scripts/core/game_manager.gd" id="1_x6flg"]
-[ext_resource type="PackedScene" uid="uid://v0jl6wdviy3s" path="res://scenes/levels/level0.tscn" id="2_x6flg"]
+[ext_resource type="PackedScene" uid="uid://b4cqi0266u5d8" path="res://scenes/levels/billiards.tscn" id="2_lv3y2"]
 [ext_resource type="Texture2D" uid="uid://5mi57l5xsjla" path="res://assets/ui/settings_icon.png" id="3_lv3y2"]
 
 [node name="GameManager" type="Node" unique_id=1675507377 node_paths=PackedStringArray("GameViewPort")]
 script = ExtResource("1_x6flg")
 GameViewPort = NodePath("Control/SubViewportContainer/SubViewport")
-InitialLevel = ExtResource("2_x6flg")
+InitialLevel = ExtResource("2_lv3y2")
 settings_icon = ExtResource("3_lv3y2")
 settings_button_scale = 1.5
 

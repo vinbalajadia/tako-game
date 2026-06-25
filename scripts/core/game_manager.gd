@@ -70,7 +70,7 @@ func _on_game_start_requested(character: String) -> void:
 
 	_add_virtual_controls()
 
-	var target_level: int = Enums.LevelName.Level0
+	var target_level: int = Enums.LevelName.Billiards
 	if not PlayerDataManager.last_level_name.is_empty():
 		var keys: Array = Enums.LevelName.keys()
 		var saved_index: int = keys.find(PlayerDataManager.last_level_name)
