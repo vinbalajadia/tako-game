@@ -36,10 +36,6 @@ func _ready() -> void:
 
 	PlayerDataManager.load_data()
 	_create_settings_button()
-	if OS.has_feature("web"):
-		var saved: Variant = JavaScriptBridge.eval("localStorage.getItem('odin_character') || ''")
-		if typeof(saved) == TYPE_STRING and not (saved as String).is_empty():
-			Globals.selected_character = saved
 	show_main_menu()
 
 func show_main_menu() -> void:

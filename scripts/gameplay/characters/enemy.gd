@@ -12,9 +12,8 @@ extends CharacterBody2D
 
 var vision_direction: Vector2 = Vector2.DOWN
 
-@export_category("Puzzle")
-@export var puzzle_id: String = ""
-@export var skill_type: Enums.SkillType = Enums.SkillType.ArrayInitialization
+@export_category("Battle")
+@export var skill_type: Enums.SkillType = Enums.SkillType.BasicArithmetic
 
 @export_category("Dialogue")
 @export var battle_dialogue: Array[DialogueEntry] = []

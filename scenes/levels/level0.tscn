@@ -10,81 +10,33 @@
 [ext_resource type="PackedScene" uid="uid://dfbkn4r5vpnig" path="res://scenes/gameplay/interactable.tscn" id="8_oem7y"]
 [ext_resource type="PackedScene" uid="uid://d0xdhdoj3a463" path="res://scenes/gameplay/dialogue_trigger.tscn" id="9_oem7y"]
 
-[sub_resource type="Resource" id="Resource_ng1gw"]
-script = ExtResource("7_1nvli")
-text = "What?!"
-metadata/_custom_type_script = "uid://cb4nyolipk5xc"
-
-[sub_resource type="Resource" id="Resource_yxkm4"]
-script = ExtResource("7_1nvli")
-text = "Where am I?!"
-metadata/_custom_type_script = "uid://cb4nyolipk5xc"
-
-[sub_resource type="Resource" id="Resource_vals0"]
-script = ExtResource("7_1nvli")
-text = "What... what happened to the graphics? Why is my hand pixelated? Did the compiler just crash reality?!"
-metadata/_custom_type_script = "uid://cb4nyolipk5xc"
-
-[sub_resource type="Resource" id="Resource_d3ub6"]
-script = ExtResource("7_1nvli")
-speaker_name = "ODIN"
-text = "Do not panic. An unauthorized user has triggered a Null Reference Cascade. Manila's logic is broken. "
-metadata/_custom_type_script = "uid://cb4nyolipk5xc"
-
-[sub_resource type="Resource" id="Resource_7s2gi"]
-script = ExtResource("7_1nvli")
-text = "HUH?! WHO ARE YOU?!"
-metadata/_custom_type_script = "uid://cb4nyolipk5xc"
-
-[sub_resource type="Resource" id="Resource_3ebcg"]
-script = ExtResource("7_1nvli")
-speaker_name = "ODIN"
-text = "I am ODIN. You are the Runtime Compiler. Fix the code, or the simulation crashes"
-metadata/_custom_type_script = "uid://cb4nyolipk5xc"
-
-[sub_resource type="Resource" id="Resource_luu1i"]
-script = ExtResource("7_1nvli")
-text = "That doesn't make sense."
-metadata/_custom_type_script = "uid://cb4nyolipk5xc"
-
-[sub_resource type="Resource" id="Resource_db1u1"]
-script = ExtResource("7_1nvli")
-speaker_name = "ODIN"
-text = "Don't worry. I'll guide you through everything. For now let's defeat some bugs!"
-metadata/_custom_type_script = "uid://cb4nyolipk5xc"
-
-[sub_resource type="Resource" id="Resource_po5je"]
-script = ExtResource("7_1nvli")
-text = "Use WASD or Arrow Keys to move."
-metadata/_custom_type_script = "uid://cb4nyolipk5xc"
-
 [sub_resource type="Resource" id="Resource_a76di"]
 script = ExtResource("7_1nvli")
-speaker_name = "The Silent Phantom"
-text = "I am raising my hand to greet the simulation, but no words come out! My output stream is completely blank! How do I speak to the world?!"
+speaker_name = "Enemy"
+text = "You dare challenge me? Prove your math skills!"
 
 [sub_resource type="Resource" id="Resource_oem7y"]
 script = ExtResource("7_1nvli")
-speaker_name = "The Heavy Allocator"
-text = "I am trying to smash this identity into the system! I know my ID is a solid, whole number 404, but I don't have the memory allocated to hold something this heavy! Give me a variable!"
+speaker_name = "Enemy"
+text = "Numbers are my weapon. Can you keep up?"
 metadata/_custom_type_script = "uid://cb4nyolipk5xc"
 
 [sub_resource type="Resource" id="Resource_fj52k"]
 script = ExtResource("7_1nvli")
-speaker_name = "The Modulo Slasher"
-text = "I can slice ten power cycles into three perfect pieces, but my blade cannot calculate what is left over! The remainder is driving me mad! Give me the right operator!"
+speaker_name = "Enemy"
+text = "Let's see if you can solve this!"
 metadata/_custom_type_script = "uid://cb4nyolipk5xc"
 
 [sub_resource type="Resource" id="Resource_1t5oo"]
 script = ExtResource("7_1nvli")
-speaker_name = "The Panicking Gatekeeper"
-text = "Too much data! True? False? Are their access levels high enough?! The gates are open to everyone and my head is splitting! Build me a logic gate to filter them before I crash!"
+speaker_name = "Enemy"
+text = "Think you're smart? Show me."
 metadata/_custom_type_script = "uid://cb4nyolipk5xc"
 
 [sub_resource type="Resource" id="Resource_m6lg1"]
 script = ExtResource("7_1nvli")
-speaker_name = "The Memory Mercenary"
-text = "I need to load three security keys to breach the exit, but my belt only has single-variable pouches! I need a contiguous magazine! Give me a block of memory that holds exactly three!"
+speaker_name = "Enemy"
+text = "You'll have to get through me first!"
 metadata/_custom_type_script = "uid://cb4nyolipk5xc"
 
 [sub_resource type="Resource" id="Resource_3asx1"]
@@ -104,7 +56,6 @@ metadata/_custom_type_script = "uid://cb4nyolipk5xc"
 
 [node name="Level" type="Node2D" unique_id=1566062915]
 script = ExtResource("1_hghvf")
-spawn_dialogue = Array[ExtResource("7_1nvli")]([SubResource("Resource_ng1gw"), SubResource("Resource_yxkm4"), SubResource("Resource_vals0"), SubResource("Resource_d3ub6"), SubResource("Resource_7s2gi"), SubResource("Resource_3ebcg"), SubResource("Resource_luu1i"), SubResource("Resource_db1u1"), SubResource("Resource_po5je")])
 
 [node name="Tiles" type="Node2D" parent="." unique_id=545103342]
 texture_filter = 1
@@ -138,7 +89,7 @@ texture_filter = 1
 
 [node name="Exit" parent="SceneTriggers" unique_id=1479068614 instance=ExtResource("4_ry65h")]
 position = Vector2(608, 336)
-target_level_name = 1
+current_level_trigger = 1
 entry_direction = Vector2(0, 1)
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1884108535]
@@ -155,14 +106,12 @@ position = Vector2(608, 480)
 enemy_id = "01"
 initial_facing = 2
 vision_range = 9
-puzzle_id = "a0000001-0000-0000-0000-000000000000"
 battle_dialogue = Array[ExtResource("7_1nvli")]([SubResource("Resource_a76di")])
 
 [node name="Enemy2" parent="Enemies" unique_id=1936928019 instance=ExtResource("4_d0grl")]
 position = Vector2(416, 448)
 enemy_id = "02"
 initial_facing = 3
-puzzle_id = "a0000002-0000-0000-0000-000000000000"
 battle_dialogue = Array[ExtResource("7_1nvli")]([SubResource("Resource_oem7y")])
 
 [node name="Enemy3" parent="Enemies" unique_id=176152187 instance=ExtResource("4_d0grl")]
@@ -170,16 +119,12 @@ position = Vector2(352, 416)
 enemy_id = "03"
 initial_facing = 3
 vision_range = 9
-puzzle_id = "a0000003-0000-0000-0000-000000000000"
-skill_type = 3
 battle_dialogue = Array[ExtResource("7_1nvli")]([SubResource("Resource_fj52k")])
 
 [node name="Enemy4" parent="Enemies" unique_id=150686460 instance=ExtResource("4_d0grl")]
 position = Vector2(544, 384)
 enemy_id = "04"
 initial_facing = 2
-puzzle_id = "a0000004-0000-0000-0000-000000000000"
-skill_type = 1
 battle_dialogue = Array[ExtResource("7_1nvli")]([SubResource("Resource_1t5oo")])
 
 [node name="Enemy5" parent="Enemies" unique_id=173818671 instance=ExtResource("4_d0grl")]
@@ -187,7 +132,6 @@ position = Vector2(592, 352)
 enemy_id = "05"
 initial_facing = 3
 vision_range = 1
-puzzle_id = "a0000005-0000-0000-0000-000000000000"
 battle_dialogue = Array[ExtResource("7_1nvli")]([SubResource("Resource_m6lg1")])
 is_level_boss = true
 

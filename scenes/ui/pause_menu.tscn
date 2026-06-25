@@ -144,13 +144,6 @@ RUN
 
 ADVANCE DIALOGUE
   Enter
-
-CODE EDITOR ZOOM
-  Ctrl + scroll wheel
-  Ctrl + -/=
-
-CODE EDITOR ZOOM (reset to default)
-  Ctrl + 0
 "
 autowrap_mode = 2
 

@@ -67,6 +67,7 @@ entry_direction = Vector2(0, 1)
 [node name="Entrance" parent="SceneTriggers" unique_id=172456709 instance=ExtResource("5_4sij7")]
 position = Vector2(704, 240)
 target_level_name = 1
+target_level_trigger = 1
 entry_direction = Vector2(0, -1)
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1884108535]

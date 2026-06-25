@@ -9,29 +9,19 @@ const SAVE_PATH: String = "user://player_data.json"
 
 const ACHIEVEMENTS: Array = [
 	{
+		"id": "billiards_complete",
+		"title": "First Strike",
+		"description": "Cleared the first level. The numbers feared you.",
+	},
+	{
 		"id": "level0_complete",
-		"title": "First Blood Draw",
-		"description": "Completed the diagnostic test. Your knowledge has been measured, catalogued, and filed appropriately.",
-	},
-	{
-		"id": "level1_complete",
-		"title": "In a Row",
-		"description": "Tamed the single-dimensional array. One dimension down — the others are watching.",
-	},
-	{
-		"id": "level2_complete",
-		"title": "Around and Around",
-		"description": "Conquered loops and iteration. The code runs endlessly — you just decide when it stops.",
-	},
-	{
-		"id": "level3_complete",
-		"title": "The Grid Whisperer",
-		"description": "Survived multidimensional arrays and nested loops. You can traverse a grid in your sleep now.",
+		"title": "Solid Foundation",
+		"description": "Proved you know your basics. Every great mathematician started here.",
 	},
 	{
 		"id": "final_boss_complete",
-		"title": "Return 0",
-		"description": "The final boss is defeated. The program exits cleanly — no errors, no exceptions, just you, victorious.",
+		"title": "Calculated",
+		"description": "The final boss is defeated. Every equation balanced, every answer exact.",
 	},
 ]
 
@@ -86,9 +76,6 @@ func load_data() -> void:
 		Globals.defeated_enemies[str(e)] = true
 
 	apply_audio_settings(data)
-
-	# Async: fetch from server — set_from_server() will override local state when it arrives
-	ApiClient.get_game_state()
 
 func save_character(character: String) -> void:
 	selected_character = character
@@ -177,5 +164,3 @@ func _write_to_file() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.ModeFlags.WRITE)
 	if file != null:
 		file.store_string(JSON.stringify(data))
-	# Mirror to server for cross-device sync
-	ApiClient.put_game_state(data)
