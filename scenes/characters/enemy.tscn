@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://c3rjo1qxgpbh0"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/characters/enemy.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/gameplay/characters/enemy_input.gd" id="2"]
+[ext_resource type="SpriteFrames" uid="uid://ww1ww2ti75cv" path="res://resources/spriteframes/playerm.tres" id="2_tjfok"]
+[ext_resource type="Script" path="res://scripts/gameplay/characters/character_movement.gd" id="3"]
+[ext_resource type="SpriteFrames" uid="uid://hscxmg1skihf" path="res://resources/spriteframes/playerf.tres" id="3_ovt1e"]
+[ext_resource type="Script" path="res://scripts/gameplay/characters/character_animation.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/gameplay/characters/character_collision_ray_cast.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/utilities/state_machine.gd" id="6"]
+[ext_resource type="SpriteFrames" uid="uid://w3cryem1fm8y" path="res://resources/spriteframes/enemy.tres" id="6_hvulg"]
+[ext_resource type="Script" path="res://scripts/gameplay/characters/states/enemy_idle_state.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/gameplay/characters/states/enemy_alert_state.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/gameplay/characters/states/enemy_chase_state.gd" id="9"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(12, 12)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1161294414]
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("1")
+player_m_boss_frames = ExtResource("2_tjfok")
+player_f_boss_frames = ExtResource("3_ovt1e")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=2089862301]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Input" type="Node" parent="." unique_id=2038640789]
+script = ExtResource("2")
+
+[node name="Movement" type="Node" parent="." unique_id=2076687349 node_paths=PackedStringArray("character", "character_input")]
+script = ExtResource("3")
+character = NodePath("..")
+character_input = NodePath("../Input")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1316553736 node_paths=PackedStringArray("character_input", "character_movement")]
+y_sort_enabled = true
+position = Vector2(8, 0)
+sprite_frames = ExtResource("6_hvulg")
+animation = &"idle_down"
+script = ExtResource("4")
+character_input = NodePath("../Input")
+character_movement = NodePath("../Movement")
+
+[node name="CollisionRayCast" type="RayCast2D" parent="." unique_id=2063577352 node_paths=PackedStringArray("character_input")]
+position = Vector2(8, 8)
+target_position = Vector2(0, 16)
+script = ExtResource("5")
+character_input = NodePath("../Input")
+
+[node name="VisionRay" type="RayCast2D" parent="." unique_id=577833668]
+position = Vector2(8, 8)
+target_position = Vector2(0, 80)
+collision_mask = 4294967295
+
+[node name="StateMachine" type="Node" parent="." unique_id=1706346459 node_paths=PackedStringArray("customer")]
+script = ExtResource("6")
+customer = NodePath("..")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=455094855 node_paths=PackedStringArray("enemy_input", "character_movement")]
+script = ExtResource("7")
+enemy_input = NodePath("../../Input")
+character_movement = NodePath("../../Movement")
+
+[node name="Alert" type="Node" parent="StateMachine" unique_id=1005710849 node_paths=PackedStringArray("enemy_input")]
+script = ExtResource("8")
+enemy_input = NodePath("../../Input")
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=677406515 node_paths=PackedStringArray("enemy_input", "character_movement")]
+script = ExtResource("9")
+enemy_input = NodePath("../../Input")
+character_movement = NodePath("../../Movement")

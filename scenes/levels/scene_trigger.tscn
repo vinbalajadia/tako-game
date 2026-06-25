@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d3rfm412vaosh"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/levels/scene_trigger.gd" id="1_etmfl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3efqg"]
+size = Vector2(16, 16)
+
+[node name="Scene Trigger" type="Area2D" unique_id=1479068614]
+texture_filter = 1
+script = ExtResource("1_etmfl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1538777891]
+texture_filter = 1
+position = Vector2(8, 8)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_3efqg")

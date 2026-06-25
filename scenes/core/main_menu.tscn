@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://fb8hi6hqhmot"]
+
+[ext_resource type="Script" uid="uid://i77tke8o626c" path="res://scripts/core/main_menu.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://dxl0ykafegkjr" path="res://resources/ui/ui_theme.tres" id="2_r6wqj"]
+[ext_resource type="StyleBox" uid="uid://yspifr20536k" path="res://resources/ui/menu/button_normal.tres" id="3_p31qs"]
+[ext_resource type="StyleBox" uid="uid://c58nokwdfjyxl" path="res://resources/ui/menu/button_pressed.tres" id="4_pa3yt"]
+[ext_resource type="StyleBox" uid="uid://de3tg8c5e2hnv" path="res://resources/ui/menu/button_hover.tres" id="5_hkd7v"]
+[ext_resource type="Texture2D" uid="uid://chm5qqs4phf8r" path="res://assets/logo/Logo.png" id="6_pa3yt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa3yt"]
+content_margin_top = 10.0
+bg_color = Color(0, 0, 0, 0.74509805)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.081, 0.576, 1.038, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[node name="MainMenu" type="Control" unique_id=868648997]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=670788683]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.08, 0.08, 0.08, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=496272447]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=702484811]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme = ExtResource("2_r6wqj")
+theme_override_constants/separation = 12
+
+[node name="Logo" type="TextureRect" parent="CenterContainer/VBoxContainer" unique_id=1442138224]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_pa3yt")
+stretch_mode = 5
+
+[node name="WelcomeLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1631533575]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hello there!"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=984811398]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_p31qs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pa3yt")
+theme_override_styles/hover = ExtResource("5_hkd7v")
+text = "Continue"
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1946222702]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_p31qs")
+theme_override_styles/pressed = ExtResource("4_pa3yt")
+theme_override_styles/hover = ExtResource("5_hkd7v")
+text = "New Game"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1104468651]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_p31qs")
+theme_override_styles/pressed = ExtResource("4_pa3yt")
+theme_override_styles/hover = ExtResource("5_hkd7v")
+text = "Settings"

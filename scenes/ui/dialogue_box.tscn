@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://capddnbp5gpr7"]
+
+[ext_resource type="Script" uid="uid://bdajdwvh0qaly" path="res://scripts/gameplay/ui/dialogue_box.gd" id="1_script"]
+[ext_resource type="StyleBox" uid="uid://crtmwjbt0lekw" path="res://resources/battle/editor.tres" id="2_6iboe"]
+[ext_resource type="FontFile" uid="uid://d0c1d3f552cmr" path="res://resources/fonts/dedicool/Dedicool.ttf" id="3_4mjmi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daetb"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mjmi"]
+content_margin_left = 14.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="DialogueBox" type="CanvasLayer" unique_id=1134172763]
+layer = 15
+script = ExtResource("1_script")
+
+[node name="Panel" type="Panel" parent="." unique_id=920379859]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -232.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("2_6iboe")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=2117270975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1895648419]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="NameLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=2146338189]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_4mjmi")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_daetb")
+text = "test"
+
+[node name="TextLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=932519978]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_4mjmi")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_4mjmi")
+text = "test"
+autowrap_mode = 2
+
+[node name="HintRow" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=2024579411]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer/HintRow" unique_id=581073709]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HintLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/HintRow" unique_id=477242537]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5764706)
+theme_override_fonts/font = ExtResource("3_4mjmi")
+theme_override_font_sizes/font_size = 20
+text = "testtest"

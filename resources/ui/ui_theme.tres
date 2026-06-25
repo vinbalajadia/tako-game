@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://dxl0ykafegkjr"]
+
+[ext_resource type="FontFile" uid="uid://d0c1d3f552cmr" path="res://resources/fonts/dedicool/Dedicool.ttf" id="1_ahhjq"]
+
+[resource]
+default_font = ExtResource("1_ahhjq")
+default_font_size = 24
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 5

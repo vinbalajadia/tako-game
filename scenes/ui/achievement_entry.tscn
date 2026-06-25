@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://p6fvf1x4mfs1"]
+
+[ext_resource type="Script" uid="uid://cm1baqatnubih" path="res://scripts/gameplay/ui/achievement_entry.gd" id="1_entry"]
+[ext_resource type="FontFile" uid="uid://d0c1d3f552cmr" path="res://resources/fonts/dedicool/Dedicool.ttf" id="2_font"]
+
+[node name="AchievementEntry" type="VBoxContainer" unique_id=1958791100]
+script = ExtResource("1_entry")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=451522795]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Achievement Title"
+
+[node name="DescLabel" type="Label" parent="." unique_id=1176502360]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+text = "Achievement description goes here."
+autowrap_mode = 3

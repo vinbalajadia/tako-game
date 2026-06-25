@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bklxownsoateg"]
+
+[ext_resource type="Script" uid="uid://do754p4r1i6uo" path="res://scripts/gameplay/ui/to_be_continued.gd" id="1_tbc"]
+[ext_resource type="FontFile" uid="uid://d0c1d3f552cmr" path="res://resources/fonts/dedicool/Dedicool.ttf" id="2_igptv"]
+
+[node name="ToBeContinued" type="CanvasLayer" unique_id=192286541]
+layer = 200
+script = ExtResource("1_tbc")
+display_duration = 5.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=492540905]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=446456568]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_igptv")
+theme_override_font_sizes/font_size = 32
+text = "To Be Continued..."
+horizontal_alignment = 1
+vertical_alignment = 1

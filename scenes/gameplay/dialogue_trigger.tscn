@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d0xdhdoj3a463"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/levels/dialogue_trigger.gd" id="1_b3e24"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7s2gi"]
+size = Vector2(16.888885, 16.888855)
+
+[node name="Dialogue Trigger" type="Area2D" unique_id=291467002]
+script = ExtResource("1_b3e24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=646418218]
+texture_filter = 1
+position = Vector2(8, 8)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_7s2gi")

@@ -1,0 +1,321 @@
+[gd_scene format=3 uid="uid://dc4rhgnwqj727"]
+
+[ext_resource type="Script" uid="uid://dq6ctabhmk1pk" path="res://scripts/gameplay/battle_scene.gd" id="1"]
+[ext_resource type="Theme" uid="uid://dxl0ykafegkjr" path="res://resources/ui/ui_theme.tres" id="1_p51gn"]
+[ext_resource type="StyleBox" uid="uid://crtmwjbt0lekw" path="res://resources/battle/editor.tres" id="3_drxpv"]
+[ext_resource type="SystemFont" uid="uid://drfu43dc5nlj4" path="res://resources/ui/consolas_font.tres" id="3_x8bid"]
+[ext_resource type="StyleBox" uid="uid://dg3wr76mvxop1" path="res://resources/battle/button.tres" id="5_drxpv"]
+[ext_resource type="StyleBox" uid="uid://da8874cojnrke" path="res://resources/battle/editorfocus.tres" id="5_i4ha3"]
+[ext_resource type="FontFile" uid="uid://brf68agyfw5h0" path="res://resources/fonts/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Regular.ttf" id="6_kholq"]
+[ext_resource type="PackedScene" uid="uid://bs4h6sys7lcms" path="res://scenes/ui/hint_button.tscn" id="7_mhrs4"]
+[ext_resource type="PackedScene" uid="uid://cnl30icxs0cks" path="res://scenes/ui/hints_popup.tscn" id="11_qaiw1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i4ha3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kholq"]
+content_margin_top = 1.0
+
+[sub_resource type="Theme" id="Theme_651df"]
+default_font = ExtResource("3_x8bid")
+default_font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drxpv"]
+bg_color = Color(0, 0, 0, 0.23529412)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.081, 0.576, 1.038, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+content_margin_left = 0.0
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhrs4"]
+content_margin_top = 10.0
+bg_color = Color(0.22745098, 0.24705882, 0.24705882, 0.39607844)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.48959473, 0.9081231, 0.20784314)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaiw1"]
+content_margin_top = 10.0
+bg_color = Color(0, 0, 0, 0.74509805)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color(0.081, 0.576, 1.038, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smqqk"]
+content_margin_top = 10.0
+bg_color = Color(0.21176471, 0.22745098, 0.22745098, 0.63529414)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.081, 0.576, 1.038, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[node name="BattleScene" type="Control" unique_id=1730312365]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_p51gn")
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1769661504]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16134733, 0.1729126, 0.20560166, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=260538747]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="ContentSplit" type="HBoxContainer" parent="MarginContainer" unique_id=200000001]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LeftVBox" type="VBoxContainer" parent="MarginContainer/ContentSplit" unique_id=200000002]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.45
+theme_override_constants/separation = 8
+
+[node name="VisualPanel" type="Panel" parent="MarginContainer/ContentSplit/LeftVBox" unique_id=200000003]
+clip_contents = true
+custom_minimum_size = Vector2(0, 280)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_drxpv")
+
+[node name="BattleBG" type="TextureRect" parent="MarginContainer/ContentSplit/LeftVBox/VisualPanel" unique_id=200000040]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 3
+
+[node name="VisualHBox" type="HBoxContainer" parent="MarginContainer/ContentSplit/LeftVBox/VisualPanel" unique_id=200000004]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PlayerSide" type="VBoxContainer" parent="MarginContainer/ContentSplit/LeftVBox/VisualPanel/VisualHBox" unique_id=200000030]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="EnemyDisplay" type="TextureRect" parent="MarginContainer/ContentSplit/LeftVBox/VisualPanel/VisualHBox/PlayerSide" unique_id=200000005]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="HGap" type="Control" parent="MarginContainer/ContentSplit/LeftVBox/VisualPanel/VisualHBox" unique_id=200000033]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+
+[node name="EnemySide" type="VBoxContainer" parent="MarginContainer/ContentSplit/LeftVBox/VisualPanel/VisualHBox" unique_id=200000031]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PlayerDisplay" type="TextureRect" parent="MarginContainer/ContentSplit/LeftVBox/VisualPanel/VisualHBox/EnemySide" unique_id=200000006]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="OutputPanel" type="Panel" parent="MarginContainer/ContentSplit/LeftVBox" unique_id=200000019]
+z_index = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_drxpv")
+
+[node name="OutputMargin" type="MarginContainer" parent="MarginContainer/ContentSplit/LeftVBox/OutputPanel" unique_id=200000020]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="OutputVBox" type="VBoxContainer" parent="MarginContainer/ContentSplit/LeftVBox/OutputPanel/OutputMargin" unique_id=200000021]
+layout_mode = 2
+theme = ExtResource("1_p51gn")
+theme_override_constants/separation = 0
+
+[node name="OutputTitle" type="Label" parent="MarginContainer/ContentSplit/LeftVBox/OutputPanel/OutputMargin/OutputVBox" unique_id=200000022]
+layout_mode = 2
+theme_override_constants/paragraph_spacing = -24
+text = "OUTPUT:
+"
+
+[node name="OutputScroll" type="ScrollContainer" parent="MarginContainer/ContentSplit/LeftVBox/OutputPanel/OutputMargin/OutputVBox" unique_id=200000023]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OutputText" type="Label" parent="MarginContainer/ContentSplit/LeftVBox/OutputPanel/OutputMargin/OutputVBox/OutputScroll" unique_id=200000024]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Output will appear here after submission."
+autowrap_mode = 3
+
+[node name="RightVBox" type="VBoxContainer" parent="MarginContainer/ContentSplit" unique_id=200000013]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.55
+theme_override_constants/separation = 8
+
+[node name="ProblemPanel" type="Panel" parent="MarginContainer/ContentSplit/RightVBox" unique_id=200000007]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_drxpv")
+
+[node name="ProblemMargin" type="MarginContainer" parent="MarginContainer/ContentSplit/RightVBox/ProblemPanel" unique_id=200000008]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ProblemVBox" type="VBoxContainer" parent="MarginContainer/ContentSplit/RightVBox/ProblemPanel/ProblemMargin" unique_id=200000009]
+layout_mode = 2
+
+[node name="ProblemScroll" type="ScrollContainer" parent="MarginContainer/ContentSplit/RightVBox/ProblemPanel/ProblemMargin/ProblemVBox" unique_id=200000011]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ProblemText" type="Label" parent="MarginContainer/ContentSplit/RightVBox/ProblemPanel/ProblemMargin/ProblemVBox/ProblemScroll" unique_id=200000012]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Problem description will appear here."
+autowrap_mode = 3
+
+[node name="EditorPanel" type="Panel" parent="MarginContainer/ContentSplit/RightVBox" unique_id=200000014]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i4ha3")
+
+[node name="EditorMargin" type="MarginContainer" parent="MarginContainer/ContentSplit/RightVBox/EditorPanel" unique_id=200000015]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = -2
+
+[node name="EditorVBox" type="VBoxContainer" parent="MarginContainer/ContentSplit/RightVBox/EditorPanel/EditorMargin" unique_id=200000016]
+layout_mode = 2
+
+[node name="TitleRow" type="HBoxContainer" parent="MarginContainer/ContentSplit/RightVBox/EditorPanel/EditorMargin/EditorVBox" unique_id=200000042]
+layout_mode = 2
+
+[node name="EditorTitle" type="Label" parent="MarginContainer/ContentSplit/RightVBox/EditorPanel/EditorMargin/EditorVBox/TitleRow" unique_id=200000017]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kholq")
+text = "Code Editor"
+
+[node name="HintButton" parent="MarginContainer/ContentSplit/RightVBox/EditorPanel/EditorMargin/EditorVBox/TitleRow" unique_id=325701175 instance=ExtResource("7_mhrs4")]
+layout_mode = 2
+
+[node name="CodeEditor" type="CodeEdit" parent="MarginContainer/ContentSplit/RightVBox/EditorPanel/EditorMargin/EditorVBox" unique_id=200000018]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_651df")
+theme_override_fonts/font = ExtResource("6_kholq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_drxpv")
+theme_override_styles/focus = ExtResource("5_i4ha3")
+placeholder_text = "-- Write your code here..."
+gutters_draw_line_numbers = true
+indent_automatic = true
+
+[node name="BottomRow" type="HBoxContainer" parent="MarginContainer/ContentSplit/RightVBox/EditorPanel/EditorMargin/EditorVBox" unique_id=200000043]
+layout_mode = 2
+alignment = 2
+
+[node name="SubmitButton" type="Button" parent="MarginContainer/ContentSplit/RightVBox/EditorPanel/EditorMargin/EditorVBox/BottomRow" unique_id=200000026]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_p51gn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhrs4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qaiw1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_smqqk")
+theme_override_styles/disabled = ExtResource("5_drxpv")
+text = "Submit"
+
+[node name="HintsPopup" parent="." unique_id=783192178 instance=ExtResource("11_qaiw1")]
+visible = false
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+popup_size = Vector2(600, 400)

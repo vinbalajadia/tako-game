@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://haq4pfeuivnm"]
+
+[ext_resource type="Script" uid="uid://bdall5yxw0cc1" path="res://scripts/core/scene_manager.gd" id="1_ornrk"]
+
+[node name="SceneManager" type="Node" unique_id=764176707 node_paths=PackedStringArray("FadeRect")]
+script = ExtResource("1_ornrk")
+FadeRect = NodePath("Control/ColorRect")
+
+[node name="Control" type="Control" parent="." unique_id=173206814]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=697249364]
+z_index = 100
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

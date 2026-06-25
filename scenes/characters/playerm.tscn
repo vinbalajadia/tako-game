@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://vb5o0i0ndf1r"]
+
+[ext_resource type="Script" uid="uid://dnbygxitcjdvc" path="res://scripts/gameplay/characters/player.gd" id="1_6eyoc"]
+[ext_resource type="Script" uid="uid://d1aj70t8464aa" path="res://scripts/gameplay/characters/player_input.gd" id="1_yewv4"]
+[ext_resource type="Script" uid="uid://dkm6qt3bvm62m" path="res://scripts/gameplay/characters/character_movement.gd" id="2_76oj4"]
+[ext_resource type="Script" uid="uid://nogj0vl0kbpv" path="res://scripts/gameplay/characters/character_animation.gd" id="4_dyp2m"]
+[ext_resource type="SpriteFrames" uid="uid://ww1ww2ti75cv" path="res://resources/spriteframes/playerm.tres" id="4_x354i"]
+[ext_resource type="Script" uid="uid://bj5u1xj115uw2" path="res://scripts/utilities/state_machine.gd" id="5_kqtwu"]
+[ext_resource type="Script" uid="uid://dlbbm6bamillw" path="res://scripts/gameplay/characters/states/player_roam_state.gd" id="6_6eyoc"]
+[ext_resource type="Script" uid="uid://fr6t3hmx5e6o" path="res://scripts/gameplay/characters/character_collision_ray_cast.gd" id="6_eojnx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qees"]
+size = Vector2(12, 12)
+
+[node name="Player" type="CharacterBody2D" unique_id=516716764]
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("1_6eyoc")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1994119374]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_0qees")
+
+[node name="Input" type="Node" parent="." unique_id=1133431858]
+script = ExtResource("1_yewv4")
+
+[node name="Movement" type="Node" parent="." unique_id=752018529 node_paths=PackedStringArray("character", "character_input")]
+script = ExtResource("2_76oj4")
+character = NodePath("..")
+character_input = NodePath("../Input")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1576248750 node_paths=PackedStringArray("character_input", "character_movement")]
+y_sort_enabled = true
+position = Vector2(8, 0)
+sprite_frames = ExtResource("4_x354i")
+animation = &"idle_down"
+script = ExtResource("4_dyp2m")
+character_input = NodePath("../Input")
+character_movement = NodePath("../Movement")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1243765625]
+position = Vector2(8, 8)
+zoom = Vector2(4, 4)
+
+[node name="CollisionRayCast" type="RayCast2D" parent="." unique_id=1878954938 node_paths=PackedStringArray("character_input")]
+position = Vector2(8, 8)
+target_position = Vector2(0, 16)
+script = ExtResource("6_eojnx")
+character_input = NodePath("../Input")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1264094109 node_paths=PackedStringArray("customer")]
+script = ExtResource("5_kqtwu")
+customer = NodePath("..")
+
+[node name="Roam" type="Node" parent="StateMachine" unique_id=243408285 node_paths=PackedStringArray("player_input", "character_movement")]
+script = ExtResource("6_6eyoc")
+player_input = NodePath("../../Input")
+character_movement = NodePath("../../Movement")

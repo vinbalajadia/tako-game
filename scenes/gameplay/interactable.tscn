@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dfbkn4r5vpnig"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/interactables/interactable.gd" id="1_xnbcx"]
+[ext_resource type="Script" path="res://scripts/gameplay/data/dialogue_entry.gd" id="2_krwt5"]
+
+[sub_resource type="Resource" id="Resource_oem7y"]
+script = ExtResource("2_krwt5")
+text = "easter egg"
+metadata/_custom_type_script = ExtResource("2_krwt5")
+
+[node name="Interactable" type="Node2D" unique_id=819323372]
+script = ExtResource("1_xnbcx")
+dialogues = Array[ExtResource("2_krwt5")]([SubResource("Resource_oem7y")])

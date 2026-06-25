@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://cylqagek4cbym"]
+
+[ext_resource type="Script" uid="uid://covb5p1owqpix" path="res://scripts/gameplay/ui/pause_menu.gd" id="1_script"]
+[ext_resource type="StyleBox" uid="uid://crtmwjbt0lekw" path="res://resources/battle/editor.tres" id="2_0lmf7"]
+[ext_resource type="FontFile" uid="uid://d0c1d3f552cmr" path="res://resources/fonts/dedicool/Dedicool.ttf" id="3_f6eus"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6eus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uki6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1573541500]
+process_mode = 3
+layer = 20
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=850538893]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="Window" type="Panel" parent="." unique_id=461964735]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -200.0
+offset_right = 240.0
+offset_bottom = 200.0
+theme_override_styles/panel = ExtResource("2_0lmf7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Window" unique_id=2140833609]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/MarginContainer" unique_id=1350620394]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="Window/MarginContainer/VBoxContainer" unique_id=2099307850]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f6eus")
+text = "MENU"
+horizontal_alignment = 1
+
+[node name="Tabs" type="TabContainer" parent="Window/MarginContainer/VBoxContainer" unique_id=1173064453]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_f6eus")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f6eus")
+current_tab = 0
+
+[node name="Settings" type="VBoxContainer" parent="Window/MarginContainer/VBoxContainer/Tabs" unique_id=1057756621]
+layout_mode = 2
+theme_override_constants/separation = 9
+metadata/_tab_index = 0
+
+[node name="Separator" type="HBoxContainer" parent="Window/MarginContainer/VBoxContainer/Tabs/Settings" unique_id=2007199313]
+layout_mode = 2
+
+[node name="MusicRow" type="HBoxContainer" parent="Window/MarginContainer/VBoxContainer/Tabs/Settings" unique_id=627886265]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="Window/MarginContainer/VBoxContainer/Tabs/Settings/MusicRow" unique_id=275577765]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_f6eus")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8uki6")
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Window/MarginContainer/VBoxContainer/Tabs/Settings/MusicRow" unique_id=2048308]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="SFXRow" type="HBoxContainer" parent="Window/MarginContainer/VBoxContainer/Tabs/Settings" unique_id=1728620219]
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="Window/MarginContainer/VBoxContainer/Tabs/Settings/SFXRow" unique_id=1781628158]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_f6eus")
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="Window/MarginContainer/VBoxContainer/Tabs/Settings/SFXRow" unique_id=1521172283]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="FullscreenToggle" type="CheckButton" parent="Window/MarginContainer/VBoxContainer/Tabs/Settings" unique_id=1892362000]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_fonts/font = ExtResource("3_f6eus")
+text = "Fullscreen"
+
+[node name="Controls" type="ScrollContainer" parent="Window/MarginContainer/VBoxContainer/Tabs" unique_id=1614378758]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Separator" type="HBoxContainer" parent="Window/MarginContainer/VBoxContainer/Tabs/Controls" unique_id=295263959]
+layout_mode = 2
+
+[node name="ControlsLabel" type="Label" parent="Window/MarginContainer/VBoxContainer/Tabs/Controls" unique_id=507137570]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_f6eus")
+text = "
+MOVEMENT
+  WASD or Arrow Keys
+
+INTERACT
+  E
+
+RUN
+  Hold Shift
+
+ADVANCE DIALOGUE
+  Enter
+
+CODE EDITOR ZOOM
+  Ctrl + scroll wheel
+  Ctrl + -/=
+
+CODE EDITOR ZOOM (reset to default)
+  Ctrl + 0
+"
+autowrap_mode = 2
+
+[node name="Achievements" type="ScrollContainer" parent="Window/MarginContainer/VBoxContainer/Tabs" unique_id=2011190608]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="AchievementsContainer" type="VBoxContainer" parent="Window/MarginContainer/VBoxContainer/Tabs/Achievements" unique_id=955437948]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="HSeparator" type="HSeparator" parent="Window/MarginContainer/VBoxContainer" unique_id=1115557594]
+layout_mode = 2
+
+[node name="ButtonRow" type="HBoxContainer" parent="Window/MarginContainer/VBoxContainer" unique_id=2120098664]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ResumeButton" type="Button" parent="Window/MarginContainer/VBoxContainer/ButtonRow" unique_id=2078514951]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_f6eus")
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="Window/MarginContainer/VBoxContainer/ButtonRow" unique_id=2001412740]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_f6eus")
+text = "Main Menu"

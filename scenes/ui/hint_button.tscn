@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bs4h6sys7lcms"]
+
+[ext_resource type="FontFile" uid="uid://d0c1d3f552cmr" path="res://resources/fonts/dedicool/Dedicool.ttf" id="1_gfq1t"]
+[ext_resource type="Script" uid="uid://be2ypbi7kvxct" path="res://scripts/gameplay/ui/hint_button.gd" id="1_xrhil"]
+[ext_resource type="StyleBox" uid="uid://dr52vqlx56ipj" path="res://resources/ui/hintbutton.tres" id="2_4r8ri"]
+[ext_resource type="StyleBox" uid="uid://bkx5tbf1fv54o" path="res://resources/ui/hintbuttonpressed.tres" id="3_8novo"]
+[ext_resource type="StyleBox" uid="uid://btl7wgm5niuno" path="res://resources/ui/hintbuttonhover.tres" id="4_k4sra"]
+
+[node name="HintButton" type="Button" unique_id=325701175]
+theme_override_fonts/font = ExtResource("1_gfq1t")
+theme_override_styles/normal = ExtResource("2_4r8ri")
+theme_override_styles/pressed = ExtResource("3_8novo")
+theme_override_styles/hover = ExtResource("4_k4sra")
+text = "Hint"
+script = ExtResource("1_xrhil")

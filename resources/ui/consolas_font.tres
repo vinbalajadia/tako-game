@@ -1,0 +1,7 @@
+[gd_resource type="SystemFont" format=3 uid="uid://drfu43dc5nlj4"]
+
+[resource]
+font_names = PackedStringArray("Consolas")
+font_weight = 750
+font_stretch = 200
+generate_mipmaps = true

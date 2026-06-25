@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dak2m1p3q5r7s"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/ui/confirm_dialog.gd" id="1_script"]
+
+[node name="ConfirmDialog" type="CanvasLayer"]
+layer = 25
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="Window" type="Panel" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 16
+
+[node name="MessageLabel" type="Label" parent="Window/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+autowrap_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/MarginContainer/VBoxContainer"]
+theme_override_constants/separation = 12
+
+[node name="YesButton" type="Button" parent="Window/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+size_flags_horizontal = 3
+text = "Yes, I'm sure"
+
+[node name="NoButton" type="Button" parent="Window/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+size_flags_horizontal = 3
+text = "Cancel"

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cnl30icxs0cks"]
+
+[ext_resource type="Script" uid="uid://dder0usa5gpkn" path="res://scripts/gameplay/ui/hints_popup.gd" id="1_vq8wp"]
+[ext_resource type="StyleBox" uid="uid://c0pxyffvnuou" path="res://resources/battle/battle.tres" id="1_x8t7h"]
+[ext_resource type="Theme" uid="uid://dxl0ykafegkjr" path="res://resources/ui/ui_theme.tres" id="3_1i2ay"]
+[ext_resource type="FontFile" uid="uid://d0c1d3f552cmr" path="res://resources/fonts/dedicool/Dedicool.ttf" id="3_x8t7h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8t7h"]
+content_margin_top = 9.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="HintsPopup" type="Panel" unique_id=783192178]
+z_index = 120
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -188.0
+offset_right = -304.0
+offset_bottom = -188.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_x8t7h")
+script = ExtResource("1_vq8wp")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=238219743]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 0
+theme_override_styles/panel = ExtResource("1_x8t7h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1339349130]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1907598213]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x8t7h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x8t7h")
+text = "UNLOCKED HINTS"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=840148047]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_1i2ay")
+
+[node name="HintsList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer" unique_id=1336691358]
+layout_mode = 2
+custom_minimum_size = Vector2(552, 0)
+size_flags_horizontal = 3
+
+[node name="ButtonRow" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=475156813]
+layout_mode = 2
+
+[node name="RequestButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonRow" unique_id=2075376069]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_x8t7h")
+text = "Request New Hint"
