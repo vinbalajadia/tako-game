@@ -25,13 +25,6 @@ enum ECharacterAnimation {
 enum LevelName {
 	Billiards,
 	Level0,
-	Level01,
-	Level1,
-	Level11,
-	Level12,
-	Level2,
-	Level3,
-	Level31,
 }
 
 enum LevelGroup {

@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://ddo58a5g7wx6h"]
+[gd_scene format=4 uid="uid://dm40l8mc3cuyf"]
 
 [ext_resource type="Script" uid="uid://cbwp1lyuwxlo2" path="res://scripts/gameplay/levels/level.gd" id="1_ru30r"]
 [ext_resource type="Script" uid="uid://cb4nyolipk5xc" path="res://scripts/gameplay/data/dialogue_entry.gd" id="2_e8phx"]
